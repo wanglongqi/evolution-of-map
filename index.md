@@ -4,6 +4,8 @@ nav_order: 0
 
 # 图书首页
 
+![Book Cover](images/index-thumbnail.jpg)
+
 欢迎来到《地图投影的演变与理论》的在线版本！
 
 ## 快速导航
