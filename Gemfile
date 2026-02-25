@@ -1,15 +1,15 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "github-pages", group: :jekyll_plugins
+gem "jekyll", "~> 4.4.1"
 
-# 插件
+gem "just-the-docs", "0.12.0"
+
 gem "jekyll-seo-tag"
-gem "jekyll-sitemap"
-gem "jekyll-feed"
-gem "jekyll-mermaid"
-
-# Windows 兼容
-platforms [:jruby]
-gem "tzinfo-data"
+gem "jekyll-sitemap" 
 
 gem "webrick", "~> 1.8"
+
+# Windows 兼容
+platforms :jruby do
+  gem "tzinfo-data"
+end

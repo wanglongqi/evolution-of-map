@@ -34,7 +34,11 @@ mathjax:
   tags: 'ams'
 
 # 主题配置
-remote_theme: just-the-docs/just-the-docs#v0.5.3
+theme: just-the-docs
+
+# GitHub Pages baseurl
+baseurl: ""
+url: https://wanglongqi.github.io/evolution-of-map
 
 # 搜索配置
 search:
