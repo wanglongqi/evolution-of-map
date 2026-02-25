@@ -1,16 +1,10 @@
 source 'https://rubygems.org'
 
-gem "jekyll", "~> 4.4.1"
-
-gem "just-the-docs", "0.12.0"
-
-gem "jekyll-seo-tag"
-gem "jekyll-sitemap"
-gem "jekyll-feed" 
-
-gem "webrick", "~> 1.8"
+gem "github-pages", group: :jekyll_plugins
 
 # Windows 兼容
 platforms :jruby do
   gem "tzinfo-data"
 end
+
+gem "webrick", "~> 1.8"
