@@ -8,7 +8,7 @@ nav_order: 0
 
 ## 快速导航
 
-- [README](README.md) - 项目简介
+- [README](book-index.md) - 项目简介
 
 ## 正文章节
 
