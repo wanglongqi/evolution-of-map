@@ -17,6 +17,21 @@ window.MathJax = {
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <!-- 支持Mermaid图表 -->
+<script>
+// 在页面加载后，将 language-mermaid 代码块转换为 mermaid div
+document.addEventListener('DOMContentLoaded', function() {
+  var mermaidBlocks = document.querySelectorAll('code.language-mermaid');
+  mermaidBlocks.forEach(function(block) {
+    var parent = block.parentElement;
+    if (parent && parent.tagName === 'PRE') {
+      var mermaidDiv = document.createElement('div');
+      mermaidDiv.className = 'mermaid';
+      mermaidDiv.textContent = block.textContent;
+      parent.replaceWith(mermaidDiv);
+    }
+  });
+});
+</script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 <script>
 mermaid.initialize({
