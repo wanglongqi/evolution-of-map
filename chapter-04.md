@@ -1,3 +1,6 @@
+---
+nav_order: 4
+---
 # 第四章 制图的数学文艺复兴 (The Mathematical Renaissance of Cartography)
 
 ## 4.1 引言

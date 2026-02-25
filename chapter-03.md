@@ -1,3 +1,6 @@
+---
+nav_order: 3
+---
 # 第三章 墨卡托革命与大航海时代 (The Mercator Revolution and the Age of Discovery)
 
 ## 3.1 引言
