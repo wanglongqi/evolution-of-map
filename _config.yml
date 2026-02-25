@@ -1,0 +1,51 @@
+# Jekyll 配置 - 地图投影图书
+
+# 站点信息
+title: "The Evolution and Theory of Map Projections"
+subtitle: "From Ancient Concepts to Modern GIS"
+description: A comprehensive guide to map projections for GIS professionals, covering history, mathematical theory, and modern GIS implementation with GDAL and PROJ.
+author: "GIS Professional Book Project"
+lang: zh-CN
+timezone: Asia/Shanghai
+
+# Jekyll 设置
+markdown: kramdown
+highlighter: rouge
+lsi: false
+incremental: false
+
+# 插件配置
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-mermaid
+
+# Mermaid 配置
+mermaid:
+  version: "latest"
+  startonload: true
+
+# 数学公式配置
+mathjax:
+  tex:
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  tags: 'ams'
+
+# 主题配置
+remote_theme: just-the-docs/just-the-docs#v0.5.3
+
+# 搜索配置
+search:
+    heading_level: 2
+    previews: true
+
+# 输出目录
+destination: _site
+
+defaults:
+  scope:
+    path: ""
+    values:
+      layout: "book"
