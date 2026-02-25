@@ -1,7 +1,7 @@
 ---
 nav_order: 11
 ---
-# 第十一章 制图投影的未来 (The Future of Map Projections)
+# 第十一章 制图投影的未来 
 
 ## 11.1 引言
 

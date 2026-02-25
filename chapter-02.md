@@ -1,7 +1,7 @@
 ---
 nav_order: 2
 ---
-# 第二章 托勒密与数学制图的诞生 (Ptolemy and the Birth of Mathematical Cartography)
+# 第二章 托勒密与数学制图的诞生
 
 ## 2.1 引言
 
