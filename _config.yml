@@ -33,5 +33,18 @@ search:
     heading_level: 2
     previews: true
 
+# Just the Docs 配置
+nav_external_links:
+  - title: GitHub Repository
+    url: https://github.com/wanglongqi/evolution-of-map
+    toggle: false
+
+# 数学公式配置
+mathjax:
+  tex:
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+  tags: 'ams'
+
 # 输出目录
 destination: _site

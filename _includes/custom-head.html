@@ -1,18 +1,29 @@
 <!-- 支持LaTeX数学公式 -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    tags: 'ams'
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
 </script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <!-- 支持Mermaid图表 -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-
 <script>
-  // 初始化Mermaid
-  mermaid.initialize({
-    startOnLoad: true,
-    theme: 'default',
-    securityLevel: 'loose',
-  });
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'default',
+  securityLevel: 'loose'
+});
 </script>
 
 <!-- 添加自定义样式 -->
