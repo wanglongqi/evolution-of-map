@@ -25,8 +25,8 @@ plugins:
 remote_theme: just-the-docs/just-the-docs@v0.12.0
 
 # GitHub Pages baseurl
-baseurl: ""
-url: https://wanglongqi.github.io/evolution-of-map
+baseurl: "/evolution-of-map"
+url: https://wanglongqi.github.io
 
 # 搜索配置
 search:
