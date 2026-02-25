@@ -19,19 +19,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
-  - jekyll-mermaid
-
-# Mermaid 配置
-mermaid:
-  version: "latest"
-  startonload: true
-
-# 数学公式配置
-mathjax:
-  tex:
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
-    displayMath: [['$$', '$$'], ['\\[', '\\]']]
-  tags: 'ams'
 
 # 主题配置
 theme: just-the-docs
@@ -48,8 +35,4 @@ search:
 # 输出目录
 destination: _site
 
-defaults:
-  scope:
-    path: ""
-    values:
-      layout: "book"
+
