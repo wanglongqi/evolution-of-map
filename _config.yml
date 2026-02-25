@@ -39,6 +39,11 @@ nav_external_links:
     url: https://github.com/wanglongqi/evolution-of-map
     toggle: false
 
+# Mermaid 图表支持
+mermaid:
+  version: "10.9.0"
+  # path: "/assets/js/mermaid.min.js"  # 如果使用本地文件
+
 # 数学公式配置
 mathjax:
   tex:
