@@ -5,7 +5,6 @@
 ## 快速导航
 
 - [README](README.md) - 项目简介
-- [INDEX](INDEX.md) - 详细索引
 
 ## 正文章节
 
