@@ -1,7 +1,7 @@
 # Jekyll 配置 - 地图投影图书
 
 # 站点信息
-title: "The Evolution and Theory of Map Projections"
+title: "The Evolution of Map Projections"
 subtitle: "From Ancient Concepts to Modern GIS"
 description: A comprehensive guide to map projections for GIS professionals, covering history, mathematical theory, and modern GIS implementation with GDAL and PROJ.
 author: "GIS Professional Book Project"

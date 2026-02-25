@@ -16,47 +16,6 @@ window.MathJax = {
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<!-- 支持Mermaid图表 -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script>
-// 初始化 Mermaid
-mermaid.initialize({
-  startOnLoad: true,
-  theme: 'default',
-  securityLevel: 'loose'
-});
-
-// 在页面加载后，将 language-mermaid 代码块转换为 mermaid div
-window.addEventListener('DOMContentLoaded', function() {
-  // 查找所有 mermaid 代码块
-  var mermaidBlocks = document.querySelectorAll('code.language-mermaid');
-  console.log('Found mermaid blocks:', mermaidBlocks.length);
-  
-  mermaidBlocks.forEach(function(block) {
-    var parent = block.parentElement;
-    if (parent && parent.tagName === 'PRE') {
-      var mermaidDiv = document.createElement('div');
-      mermaidDiv.className = 'mermaid';
-      mermaidDiv.textContent = block.textContent;
-      parent.replaceWith(mermaidDiv);
-      console.log('Converted mermaid block');
-    }
-  });
-  
-  // 重新初始化 mermaid 以处理新生成的 div
-  mermaid.init(undefined, document.querySelectorAll('.mermaid'));
-});
-
-// 监听 mermaid 加载状态
-window.addEventListener('load', function() {
-  if (typeof mermaid !== 'undefined') {
-    console.log('Mermaid loaded successfully');
-  } else {
-    console.error('Mermaid failed to load');
-  }
-});
-</script>
-
 <!-- 添加自定义样式 -->
 <style>
   /* 代码块样式 */
