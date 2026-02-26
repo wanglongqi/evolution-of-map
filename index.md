@@ -11,6 +11,7 @@ nav_order: 0
 ## 快速导航
 
 - [README](book-index.md) - 项目简介
+- [图书介绍幻灯片](intro-slides.md) - 📊 完整介绍演示 (15页)
 
 ## 正文章节
 
