@@ -224,7 +224,6 @@ $$
 \frac{dA_{map}}{dA_{sphere}} = \frac{R^2 \sec(\phi)}{R^2 \cos(\phi)} = \sec^2(\phi)
 $$
 
-
 ## C.2 等角航线（Rhumb Line）推导
 
 ### C.2.1 等角航线定义
@@ -396,7 +395,6 @@ $$
 G_{map} = \left(\frac{\partial x}{\partial \phi}\right)^2 + \left(\frac{\partial y}{\partial \phi}\right)^2
 $$
 
-
 ## C.4 高斯绝妙定理
 
 ### C.4.1 主曲率与高斯曲率定义
@@ -432,7 +430,9 @@ $$
 **定理（Theorema Egregium）**：曲面的高斯曲率 $K$ 可以仅使用第一基本形式的系数 $E, F, G$ 及其对 $u, v$ 的导数表示。也就是说，高斯曲率是曲面的内蕴性质，不依赖于曲面在三维空间中的嵌入方式。
 
 具体公式（Brioschi 公式的特化形式）：
-$$ K = \frac{1}{(EG - F^2)^2} \left[ \left| \begin{matrix}
+
+$$
+K = \frac{1}{(EG - F^2)^2} \left[ \left| \begin{matrix}
 -\frac{1}{2}E_{vv} + F_{uv} - \frac{1}{2}G_{uu} & \frac{1}{2}E_u & F_u - \frac{1}{2}E_v \\
 F_v - \frac{1}{2}G_u & E & F \\
 \frac{1}{2}G_v & F & G
@@ -440,7 +440,8 @@ F_v - \frac{1}{2}G_u & E & F \\
 0 & \frac{1}{2}E_v & \frac{1}{2}G_u \\
 \frac{1}{2}E_v & E & F \\
 \frac{1}{2}G_u & F & G
-\end{matrix} \right| \right] $$
+\end{matrix} \right| \right]
+$$
 
 其中下标表示偏导数，如 $E_u = \frac{\partial E}{\partial u}$ 。
 
@@ -591,7 +592,6 @@ $$
 e = \sqrt{1 - \left(\frac{b}{a}\right)^2} = \sqrt{1 - \frac{1}{s^2}}
 $$
 
-
 ## C.6 横轴墨卡托投影与高斯-克吕格投影
 
 ### C.6.1 横轴墨卡托投影的坐标旋转
@@ -688,14 +688,15 @@ $$
 
 $$
 N = \frac{a}{\sqrt{1 - e^2 \sin^2\phi}}
-$$ （卯酉圈曲率半径）
+$$
+
+（卯酉圈曲率半径）
 
 投影坐标：
 
 $$
 X = M(\phi) + N t \cos^2\phi \frac{\Delta\lambda^2}{2} \left[ 1 + \frac{\Delta\lambda^2}{12} \left(5 - t^2 + 9\eta^2 + 4\eta^4\right) + \cdots \right]
 $$
-
 
 $$
 Y = N \cos\phi \, \Delta\lambda \left[ 1 + \frac{\Delta\lambda^2}{6} \left(1 - t^2 + \eta^2 \right) + \frac{\Delta\lambda^4}{120} \left(5 - 18t^2 + t^4 + 14\eta^2 - 58t^2\eta^2 \right) + \cdots \right]
@@ -728,9 +729,7 @@ $$
 定义常数：
 
 $$
-
 F = \frac{a \cos\phi_1 \tan^n\left(\frac{\pi}{4} + \frac{\phi_1}{2}\right)}{n}
-
 $$
 
 其中 $a$ 为地球半径（椭球面或球面）。
@@ -741,6 +740,7 @@ $$
 $$
 
 极坐标角度：
+
 $$
 \theta = n (\lambda - \lambda_0)
 $$
@@ -829,7 +829,6 @@ $$
 ### C.8.5 圆性质
 
 球极投影的重要性质：球面上的圆（或大圆）投影为平面上的圆或直线。这来源于球极投影是莫比乌斯变换（Möbius transformation）的特例。
-
 
 
 ## C.9 Web 墨卡托投影（WGS84/Pseudo-Mercator）
@@ -980,9 +979,7 @@ $$
 Jordan 准则考虑最大误差：
 
 $$
-
 E_J = \max_S |a - 1|
-
 $$
 
 ### C.11.3 Goldberg-Gott 指标
@@ -990,9 +987,7 @@ $$
 Goldberg 与 Gott 提出的综合指标：
 
 $$
-
 I_{GG} = \frac{1}{\pi} \left[ \alpha(\phi, \theta) \sqrt{d_{flex}^2 + d_{skew}^2 + d_{areal}^2} + d_{boundary}^2 + d_{cuts}^2 \right]
-
 $$
 
 其中：
@@ -1011,9 +1006,7 @@ $$
 每个瓦片的投影坐标宽度：
 
 $$
-
 \text{TileSize} = \frac{2 \cdot 20037508.342789244}{2^z} \text{ 米}
-
 $$
 
 ### C.12.2 投影坐标到瓦片坐标的转换
@@ -1052,7 +1045,6 @@ $$
 \text{PixelResolution} \approx 4.77 \text{ 米/像素}
 $$
 
-
 ## C.13 高级主题：现代数学技术的应用
 
 ### C.13.1 变分法在投影优化中的应用
@@ -1067,9 +1059,7 @@ $$
 例如，最小化平均角度变形的等积投影：
 
 $$
-
 \min_{f,g} \iint_\Omega \omega(\lambda, \phi) \, dA
-
 $$
 
 约束条件： $ab = 1$ （等积）
@@ -1081,9 +1071,7 @@ $$
 **Caputo 分数阶导数**：
 
 $$
-
 D^\alpha f(x) = \frac{1}{\Gamma(n-\alpha)} \int_a^x \frac{f^{(n)}(t)}{(x-t)^{\alpha-n+1}} dt
-
 $$
 
 其中 $n-1 < \alpha < n$ ， $\Gamma$ 是伽马函数。
@@ -1096,10 +1084,9 @@ $$
 **互信息（Mutual Information）**：
 
 $$
-
 I(X; Y) = H(X) + H(Y) - H(X, Y)
-
 $$
+
 其中 $X$ 为原始球面数据， $Y$ 为投影后数据， $H(\cdot)$ 为熵。
 互信息越大，投影保留的信息越多。
 

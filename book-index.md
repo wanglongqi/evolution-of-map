@@ -13,6 +13,7 @@ This book provides a comprehensive treatment of map projections from historical 
 ### Part I: From Ancient Concepts to Mathematical Cartography
 
 #### Chapter 1: From Ancient Concepts to Mathematical Cartography
+
 (从古代概念到数学制图)
 
 **Topics:**
@@ -27,6 +28,7 @@ This book provides a comprehensive treatment of map projections from historical 
 - Angle-to-radian conversions with calculation examples
 
 #### Chapter 2: Ptolemy and the Birth of Mathematical Cartography
+
 (托勒密与数学制图的诞生)
 
 **Topics:**
@@ -42,6 +44,7 @@ This book provides a comprehensive treatment of map projections from historical 
 ### Part II: Age of Exploration and Mathematical Innovation
 
 #### Chapter 3: The Mercator Revolution and the Age of Discovery
+
 (墨卡托革命与大航海时代)
 
 **Topics:**
@@ -66,6 +69,7 @@ This book provides a comprehensive treatment of map projections from historical 
 - Modern web mapping applications
 
 #### Chapter 4: The Mathematical Renaissance in Cartography
+
 (制图的数学文艺复兴)
 
 **Topics:**
@@ -82,6 +86,7 @@ This book provides a comprehensive treatment of map projections from historical 
 ### Part III: 19th Century - Cartography Becomes Scientific
 
 #### Chapter 5: Mathematical Advances of the 19th Century
+
 (19世纪的数学进步)
 
 **Topics:**
@@ -102,6 +107,7 @@ This book provides a comprehensive treatment of map projections from historical 
 - Distortion conditions for conformal and equal-area projections
 
 #### Chapter 6: National Mapping Systems and Practical Requirements
+
 (国家测绘系统与实际需求)
 
 **Topics:**
@@ -118,6 +124,7 @@ This book provides a comprehensive treatment of map projections from historical 
 ### Part IV: Digital Revolution - Computational Cartography
 
 #### Chapter 7: Early Computer-Based Cartography
+
 (早期计算机制图)
 
 **Topics:**
@@ -131,6 +138,7 @@ This book provides a comprehensive treatment of map projections from historical 
 - Early computational approaches
 
 #### Chapter 8: Modern Error Analysis and Quality Measurement
+
 (现代误差分析与质量度量)
 
 **Topics:**
@@ -147,6 +155,7 @@ This book provides a comprehensive treatment of map projections from historical 
 ### Part V: Contemporary Implementation and Standards
 
 #### Chapter 9: Implementation in Contemporary GIS Software
+
 (现代GIS软件中的实施)
 
 **Topics:**
@@ -156,6 +165,7 @@ This book provides a comprehensive treatment of map projections from historical 
 - Code examples and usage patterns
 
 **Code Examples:**
+
 ```python
 import pyproj
 
@@ -170,6 +180,7 @@ x, y = transformer.transform(-73.9857, 40.7484)
 - Performance optimization techniques
 
 #### Chapter 10: Web Mapping and the New Standardization
+
 (网络制图和新的标准化)
 
 **Topics:**
@@ -185,6 +196,7 @@ x, y = transformer.transform(-73.9857, 40.7484)
 ### Part VI: Future Trends
 
 #### Chapter 11: The Future of Cartographic Projections
+
 (制图投影的未来)
 
 **Topics:**
@@ -200,14 +212,17 @@ x, y = transformer.transform(-73.9857, 40.7484)
 ## Reference Materials
 
 ### Appendix A: Historical Timeline of Key Innovations
+
 (制图创新历史时间线)
 - Chronological table of 150+ events from ancient to modern times
 
 ### Appendix B: Biographical Notes on Major Contributors
+
 (主要贡献者传记笔记)
 - Professional biographies of Ptolemy, Mercator, Gauss, Tissot
 
 ### Appendix C: Mathematical Derivations Collection
+
 (数学推导集合)
 - Complete derivations for all key formulas in the book
 - Mercator projection derivation
@@ -216,6 +231,7 @@ x, y = transformer.transform(-73.9857, 40.7484)
 - Projection distortion metrics
 
 ### Appendix D: Modern Standards and Organizations Reference
+
 (现代标准和组织参考)
 - EPSG Database details
 - OGC Standards
@@ -223,6 +239,7 @@ x, y = transformer.transform(-73.9857, 40.7484)
 - GDAL library documentation
 
 ### Appendix E: Implementation References (GDAL/PROJ Examples)
+
 (实施参考（GDAL/PROJ示例）)
 - Complete Python code examples
 - Command-line tool usage
@@ -277,15 +294,18 @@ cartographic-projections/
 ## Reading Recommendations
 
 ### For Beginners
+
 - Read Chapters 1-3 sequentially for historical context and foundations
 - Focus on the intuitive explanations before diving into mathematics
 
 ### For Practitioners
+
 - Start with Chapter 9 (GIS implementation) and Appendix E (code examples)
 - Reference Chapter 3 (Mercator) and Chapter 5 (Tissot) for theoretical understanding
 - Use Appendix C for formula derivations
 
 ### For Researchers
+
 - Focus on mathematical rigor in Chapters 4, 5, and 8
 - Explore advanced topics in Chapter 11
 - Reference Appendices C and D for standards and research

@@ -1,6 +1,7 @@
 ---
 nav_order: 1
 ---
+
 # 第一章 从古代概念到数学制图
 
 ## 1 引言
@@ -92,22 +93,40 @@ nav_order: 1
 - 在亚历山大港，太阳光线与铅垂线形成角度 $\theta$ ，设为方向向量 $\vec{d}_A$
 
 由于太阳距离地球极远，光线可视为平行向量：
-$$\vec{d}_A \approx \vec{d}_S$$
+
+$$
+\vec{d}_A \approx \vec{d}_S
+$$
 
 在赛伊尼，太阳光线与径向向量 $\vec{OS}$ 方向相反（指向地心），因此：
-$$\vec{d}_S = -\frac{\vec{OS}}{|\vec{OS}|}$$
+
+$$
+\vec{d}_S = -\frac{\vec{OS}}{|\vec{OS}|}
+$$
 
 在亚历山大港，方尖碑（铅垂线）沿径向向量 $\vec{OA}$ 方向。影子的存在表明太阳光线与铅垂线存在夹角 $\theta$ 。根据几何关系：
-$$\cos\theta = \frac{\vec{d}_A \cdot \vec{OA}}{|\vec{d}_A||\vec{OA}|}$$
+
+$$
+\cos\theta = \frac{\vec{d}_A \cdot \vec{OA}}{|\vec{d}_A||\vec{OA}|}
+$$
 
 由于 $\vec{d}_A \approx \vec{d}_S = -\frac{\vec{OS}}{|\vec{OS}|}$ ，且 $|\vec{OA}| = |\vec{OS}| = R$ ：
-$$\cos\theta = \frac{-\vec{OS} \cdot \vec{OA}}{R^2}$$
+
+$$
+\cos\theta = \frac{-\vec{OS} \cdot \vec{OA}}{R^2}
+$$
 
 球面上两点 $A$ 和 $S$ 之间的夹角 $\phi$ 定义为：
-$$\cos\phi = \frac{\vec{OA} \cdot \vec{OS}}{R^2}$$
+
+$$
+\cos\phi = \frac{\vec{OA} \cdot \vec{OS}}{R^2}
+$$
 
 比较上述两式，可得：
-$$\theta = \phi$$
+
+$$
+\theta = \phi
+$$
 
 这一结果证实了埃拉托斯特尼的核心洞见：影子的角度等于两地之间的球面夹角。
 
@@ -119,23 +138,44 @@ $$\theta = \phi$$
 2. **地面距离**：从亚历山大港到赛伊尼的地面距离 $d = 5000$ "stadia"
 
 "Stadion" 是古希腊的长度单位，现代估计约为 $157.5 \text{ m}$ 至 $185 \text{ m}$ 。基于此，两地距离约为：
-$$d = 5000 \times 157.5 \text{ m} = 787.5 \text{ km}$$
+
+$$
+d = 5000 \times 157.5 \text{ m} = 787.5 \text{ km}
+$$
 
 根据弧长公式，弧长 $d$ 与圆心角 $\theta$ （以弧度为单位）满足：
-$$d = R \cdot \theta$$
+
+$$
+d = R \cdot \theta
+$$
 
 其中 $\theta = 7.2° = \frac{7.2°}{360°} \times 2\pi = \frac{1}{50} \times 2\pi = \frac{\pi}{25}$ 弧度。
 
 因此，地球半径为：
-$$R = \frac{d}{\theta} = \frac{787.5}{\pi/25} = \frac{787.5 \times 25}{\pi} \approx 6267 \text{ km}$$
+
+$$
+R = \frac{d}{\theta} = \frac{787.5}{\pi/25} = \frac{787.5 \times 25}{\pi} \approx 6267 \text{ km}
+$$
 
 地球周长为：
-$$C = 2\pi R = 2\pi \times 6267 \approx 39375 \text{ km}$$
+
+$$
+C = 2\pi R = 2\pi \times 6267 \approx 39375 \text{ km}
+$$
 
 采用另一 stadion 估算值 $185 \text{ m}$ ：
-$$d = 5000 \times 0.185 = 925 \text{ km}$$
-$$R = \frac{925 \times 25}{\pi} \approx 7363 \text{ km}$$
-$$C = 2\pi \times 7363 \approx 46250 \text{ km}$$
+
+$$
+d = 5000 \times 0.185 = 925 \text{ km}
+$$
+
+$$
+R = \frac{925 \times 25}{\pi} \approx 7363 \text{ km}
+$$
+
+$$
+C = 2\pi \times 7363 \approx 46250 \text{ km}
+$$
 
 地球的真实周长（赤道）约为 $40075 \text{ km}$ ，因此埃拉托斯特尼的计算结果在 $39375 \text{ km}$ 至 $46250 \text{ km}$ 之间，相对误差约为 $-1.75\%$ 至 $+15.4\%$ 。
 
@@ -152,7 +192,10 @@ $$C = 2\pi \times 7363 \approx 46250 \text{ km}$$
 **误差来源：**
 
 1. **子午线对准**：亚历山大港（约 $31.2°\text{E}$ ）与赛伊尼（约 $32.9°\text{E}$ ）之间存在约 $1.7°$ 的经度差异，这会导致地面距离的投影误差。若两地纬度为 $\lambda \approx 24.1°\text{N}$ ，则修正后的距离应为：
-   $$d_{actual} \approx d_{measured} \times \cos(\Delta\phi) \approx d_{measured} \times \cos(1.7°) \approx 0.9996 d_{measured}$$
+
+$$
+d_{actual} \approx d_{measured} \times \cos(\Delta\phi) \approx d_{measured} \times \cos(1.7°) \approx 0.9996 d_{measured}
+$$
 
    此误差非常微小。
 
@@ -175,9 +218,18 @@ $$C = 2\pi \times 7363 \approx 46250 \text{ km}$$
 2. **纬度（Latitude）**：从赤道（Equator）向北向南的角度。赤道为 $0°$ ，北极（North Pole）为 $+90°\text{N}$ ，南极（South Pole）为 $-90°\text{S}$ 。
 
 在数学上，设地球为半径为 $R$ 的球体，设某点 $P$ 的经度为 $\lambda$ （ $-180° \leq \lambda \leq 180°$ ），纬度为 $\phi$ （ $-90° \leq \phi \leq 90°$ ）。则 $P$ 在笛卡尔坐标系（Cartesian Coordinate System）中的位置为：
-$$x = R \cos\phi \cos\lambda$$
-$$y = R \cos\phi \sin\lambda$$
-$$z = R \sin\phi$$
+
+$$
+x = R \cos\phi \cos\lambda
+$$
+
+$$
+y = R \cos\phi \sin\lambda
+$$
+
+$$
+z = R \sin\phi
+$$
 
 这一坐标转换公式是所有球面投影的理论基础。喜帕恰斯的工作实际上将地球表面从物理对象转化为数学对象，使制图问题从空间描述变为几何变换。
 
@@ -188,10 +240,16 @@ $$z = R \sin\phi$$
 - **子午线**：通过南北极的半圆弧，所有子午线相交于两极，并在赤道上等距分布。相邻子午线在赤道上的距离为 $2\pi R / 360 = \pi R / 180$ ，随着纬度增加，相邻子午线间的地表距离收缩。
   
   在纬度 $\phi$ 处，相邻子午线间隔 $\Delta\lambda$ 对应的地表距离为：
-  $$d_{\lambda} = \frac{2\pi R \cos\phi}{360} \times \Delta\lambda = \frac{\pi R \cos\phi}{180} \times \Delta\lambda$$
+
+$$
+d_{\lambda} = \frac{2\pi R \cos\phi}{360} \times \Delta\lambda = \frac{\pi R \cos\phi}{180} \times \Delta\lambda
+$$
 
 - **纬线**：与赤道平行的圆圈，除了赤道，其他纬线都是非正圆（在球面上），其半径为 $R \cos\phi$ 。相邻纬线间隔 $\Delta\phi$ 对应的地表距离恒定为：
-  $$d_{\phi} = \frac{2\pi R}{360} \times \Delta\phi = \frac{\pi R}{180} \times \Delta\phi$$
+
+$$
+d_{\phi} = \frac{2\pi R}{360} \times \Delta\phi = \frac{\pi R}{180} \times \Delta\phi
+$$
 
 这一系统的数学特性揭示了球面几何（Spherical Geometry）与平面几何（Euclidean Geometry）的根本差异：在球面上，不存在处处平行的直线（大圆弧），三角形内角和大于 $180°$ ，且最短路径（测地线，Geodesic）是子午线或大圆弧。
 
