@@ -699,23 +699,18 @@ $$ （卯酉圈曲率半径）
 投影坐标：
 
 $$
-
 X = M(\phi) + N t \cos^2\phi \frac{\Delta\lambda^2}{2} \left[ 1 + \frac{\Delta\lambda^2}{12} \left(5 - t^2 + 9\eta^2 + 4\eta^4\right) + \cdots \right]
-
 $$
 
-and
 
 $$
-
 Y = N \cos\phi \, \Delta\lambda \left[ 1 + \frac{\Delta\lambda^2}{6} \left(1 - t^2 + \eta^2 \right) + \frac{\Delta\lambda^4}{120} \left(5 - 18t^2 + t^4 + 14\eta^2 - 58t^2\eta^2 \right) + \cdots \right]
-
 $$
+
 **尺度因子**（Scale factor）：
+
 $$
-
 h(\Delta\lambda, \phi) = 1 + \frac{\Delta\lambda^2 \cos^2\phi}{2} (1 + \eta^2) + \frac{\Delta\lambda^4 \cos^4\phi}{24} (5 - 4t^2 + 14\eta^2 + \dots) + \cdots
-
 $$
 
 在中央经线 $\Delta\lambda = 0$ 处： $h = 1$ （无变形）
@@ -730,15 +725,15 @@ $$
 ### C.7.2 圆锥常数
 
 圆锥常数（cone constant） $n$ ：
+
 $$
-
 n = \frac{\ln(\cos\phi_1 \sec\phi_2)}{\ln\left[ \tan\left(\frac{\pi}{4} + \frac{\phi_2}{2}\right) \cot\left(\frac{\pi}{4} + \frac{\phi_1}{2}\right) \right]}
-
 $$
 
 ### C.7.3 坐标公式
 
 定义常数：
+
 $$
 
 F = \frac{a \cos\phi_1 \tan^n\left(\frac{\pi}{4} + \frac{\phi_1}{2}\right)}{n}
