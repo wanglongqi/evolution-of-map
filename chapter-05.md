@@ -598,7 +598,7 @@ $$
 
 **2. 角度失真（Angle Distortion）**：
 
-球面上两个方向 $\theta_1$ 和 $\theta_2$ 的夹角为 $|\theta_1 - \theta_2|$ ，投影后夹角为：
+球面上两个方向 $\theta_1$ 和 $\theta_2$ 的夹角为 $\vert \theta_1 - \theta_2\vert$ ，投影后夹角为：
 
 $$
 \angle = \arccos\left( \frac{dS(\theta_1) \cdot dS(\theta_2)}{|dS(\theta_1)| |dS(\theta_2)|} \right)
@@ -757,7 +757,7 @@ $$
 投影的数学核心性质是：
 
 1. **可微性**： $\Phi$ 是充分可微的（至少 $C^2$ ），这确保了投影是"平滑"的
-2. **正则性**：雅可比行列式 $|\frac{\partial(x, y)}{\partial(\lambda, \phi)}| \neq 0$ ，这确保了投影是局部同胚的
+2. **正则性**：雅可比行列式 $\vert \frac{\partial(x, y)}{\partial(\lambda, \phi)}\vert \neq 0$ ，这确保了投影是局部同胚的
 3. **单值性**：每个 $(\lambda, \phi)$ 对应唯一的 $(x, y)$ ，投影函数是多对一的（不同位置的经纬坐标可能有不同表现）
 
 微分几何关注的是映射 $\Phi$ 如何改变曲面的度量张量（metric tensor）。
@@ -846,7 +846,7 @@ $$
 
 **保向映射（Orientation-preserving Mapping）**：
 
-雅可比行列式为正： $|\frac{\partial(x, y)}{\partial(\lambda, \phi)}| > 0$ 。
+雅可比行列式为正： $\vert \frac{\partial(x, y)}{\partial(\lambda, \phi)}\vert > 0$ 。
 
 大多数实际使用的投影都满足此条件。
 

@@ -110,7 +110,7 @@ $$
 \cos\theta = \frac{\vec{d}_A \cdot \vec{OA}}{|\vec{d}_A||\vec{OA}|}
 $$
 
-由于 $\vec{d}_A \approx \vec{d}_S = -\frac{\vec{OS}}{|\vec{OS}|}$ ，且 $|\vec{OA}| = |\vec{OS}| = R$ ：
+由于 $\vec{d}_A \approx \vec{d}_S = -\frac{\vec{OS}}{\vert \vec{OS}\vert }$ ，且 $\vert \vec{OA}\vert = \vert \vec{OS}\vert = R$ ：
 
 $$
 \cos\theta = \frac{-\vec{OS} \cdot \vec{OA}}{R^2}
