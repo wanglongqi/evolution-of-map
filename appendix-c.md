@@ -739,59 +739,53 @@ $$
 F = \frac{a \cos\phi_1 \tan^n\left(\frac{\pi}{4} + \frac{\phi_1}{2}\right)}{n}
 
 $$
+
 其中 $a$ 为地球半径（椭球面或球面）。
 极坐标半径：
-$$
 
+$$
 \rho = F \cot^n\left(\frac{\pi}{4} + \frac{\phi}{2}\right)
-
 $$
+
 极坐标角度：
 $$
-
 \theta = n (\lambda - \lambda_0)
-
 $$
+
 投影坐标：
-$$
 
+$$
 x = \rho \sin\theta + x_0
-
-$$
 $$
 
+$$
 y = \rho_0 - \rho \cos\theta + y_0
-
 $$
+
 其中 $(x_0, y_0)$ 为坐标原点偏移（通常用于使坐标为正值）， $\rho_0 = F \cot^n\left(\frac{\pi}{4} + \frac{\phi_0}{2}\right)$ ， $\phi_0$ 为参考纬度。
 
 ### C.7.4 反算公式
 
 给定平面坐标 $(x, y)$ ，计算纬度 $\phi$ 和经度 $\lambda$ ：
-$$
 
+$$
 \theta' = \arctan\left(\frac{x - x_0}{\rho_0 - (y - y_0)}\right)
-
-$$
 $$
 
+$$
 \rho = \sqrt{(x - x_0)^2 + (\rho_0 - (y - y_0))^2}
-
-$$
 $$
 
+$$
 t = \left(\frac{\rho}{F}\right)^{1/n}
-
-$$
 $$
 
+$$
 \phi = \frac{\pi}{2} - 2 \arctan(t)
-
-$$
 $$
 
+$$
 \lambda = \frac{\theta'}{n} + \lambda_0
-
 $$
 
 ### C.7.5 尺度因子
@@ -809,35 +803,31 @@ $$
 
 设球面点 $P$ 的球坐标为 $(\lambda, \phi)$ ，平面上的对应点 $P'$ 的复坐标为 $w = X + iY$ 。
 使用复数表示，球极投影可以表述为：
+
 $$
-
 w = \frac{2R}{1 + e^{-i\lambda} \sin\phi + \cos\phi}
-
 $$
 
 ### C.8.3 实参数形式
 
 **北极切投影**（射影中心为北极）：
-$$
 
+$$
 X = 2R \cdot \frac{\cos\phi \cos\lambda}{1 + \sin\phi}
-
-$$
 $$
 
+$$
 Y = 2R \cdot \frac{\cos\phi \sin\lambda}{1 + \sin\phi}
-
 $$
+
 **南极切投影**（射影中心为南极）：
-$$
 
+$$
 X = 2R \cdot \frac{\cos\phi \cos\lambda}{1 - \sin\phi}
-
-$$
 $$
 
+$$
 Y = 2R \cdot \frac{\cos\phi \sin\lambda}{1 - \sin\phi}
-
 $$
 
 ### C.8.4 等角性证明
@@ -854,50 +844,47 @@ $$
 ### C.9.1 与传统墨卡托的差异
 
 传统墨卡托（基于WGS84椭球体）采用球形地球近似：
-$$
 
+$$
 x(\lambda) = R \lambda
-
-$$
 $$
 
+$$
 y(\phi) = R \ln\left[\tan\left(\frac{\pi}{4} + \frac{\phi}{2}\right)\right]
-
 $$
+
 其中 $R = 6378137$ 米（等于WGS84椭球体的长半轴）。
 传统椭球体墨卡托的纬度映射包含偏心率修正项：
-$$
 
+$$
 \psi(\phi) = \ln\left[\tan\left(\frac{\pi}{4} + \frac{\phi}{2}\right)\right] - \frac{e}{2}\ln\left[\frac{1 - e\sin\phi}{1 + e\sin\phi}\right]
-
 $$
+
 其中 $e \approx 0.08181919$ 是WGS84的第一偏心率。
 Web墨卡托省略了偏心率修正项，简化性能和实现。
 
 ### C.9.2 纬度限制与正方形投影
 
 为了使投影坐标空间为正方形（便于瓦片划分），将纬度限制为使投影坐标最大值为 $\pm 20037508.342789244$ 米：
-$$
 
+$$
 y_{\max} = \pi R \approx 20037508.342789244 \text{ 米}
-
 $$
+
 最大纬度 $\phi_{\max}$ ：
-$$
 
+$$
 \pi = \ln\left[\tan\left(\frac{\pi}{4} + \frac{\phi_{\max}}{2}\right)\right]
-
-$$
 $$
 
+$$
 e^{\pi} = \tan\left(\frac{\pi}{4} + \frac{\phi_{\max}}{2}\right)
-
-$$
 $$
 
+$$
 \phi_{\max} = 2\arctan(e^{\pi}) - \frac{\pi}{2} \approx 1.484422 \text{ rad} \approx 85.05113°
-
 $$
+
 因此，Web墨卡托的实用范围：
 - 纬度： $-85.05113° \leq \phi \leq 85.05113°$
 - 经度： $-180° \leq \lambda \leq 180°$
@@ -906,15 +893,13 @@ $$
 ### C.9.3 逆投影公式
 
 给定投影坐标 $(x, y)$ ，地理坐标为：
-$$
 
+$$
 \lambda = \frac{x}{R} \cdot \frac{180}{\pi}
-
-$$
 $$
 
+$$
 \phi = \left[2\arctan\left(e^{y/R}\right) - \frac{\pi}{2}\right] \cdot \frac{180}{\pi}
-
 $$
 
 ### C.9.4 EPSG代码
@@ -928,62 +913,57 @@ $$
 ### C.10.1 等距圆柱投影（Equirectangular Projection）
 
 等距圆柱投影（Plate Carrée）是最简单的投影之一，将经度和纬度线性映射到直角坐标：
-$$
 
+$$
 x = R \lambda
-
-$$
 $$
 
+$$
 y = R \phi
-
 $$
+
 或使用角度单位：
-$$
 
+$$
 x = R \cdot \frac{\pi}{180} \cdot \lambda_{deg}
-
-$$
 $$
 
+$$
 y = R \cdot \frac{\pi}{180} \cdot \phi_{deg}
-
 $$
+
 特点：经线间距与纬线间距相同，但高纬度变形严重。
 
 ### C.10.2 正弦投影（Sinusoidal Projection）
 
 正弦投影是等积的伪圆柱投影：
-$$
 
+$$
 x = R \lambda \cos\phi
-
-$$
 $$
 
+$$
 y = R \phi
-
 $$
+
 面积比例因子 $p = 1$ （等积），但不是等角的。
 
 ### C.10.3 摩尔威德投影（Mollweide Projection）
 
 摩尔威德投影是等积伪圆柱投影：
-$$
 
+$$
 x = \frac{2\sqrt{2}}{\pi} R (\lambda - \lambda_0) \cos\theta
-
-$$
 $$
 
+$$
 y = \sqrt{2} R \sin\theta
-
 $$
+
 其中 $\theta$ 与纬度 $\phi$ 的关系由方程确定：
+
 $$
-
 2\theta + \sin 2\theta = \pi \sin\phi
-
 $$
 
 ### C.10.4 罗宾逊投影（Robinson Projection）
@@ -996,16 +976,17 @@ $$
 ### C.11.1 Airy 平均误差
 
 Airy 平均误差衡量投影在给定区域内的平均面积失真：
-$$
 
+$$
 E_A = \frac{1}{S} \iint_S (a - 1)^2 \, dS
-
 $$
+
 其中 $a$ 为局部面积比， $S$ 为积分区域。
 
 ### C.11.2 Jordan 最大误差
 
 Jordan 准则考虑最大误差：
+
 $$
 
 E_J = \max_S |a - 1|
@@ -1015,11 +996,13 @@ $$
 ### C.11.3 Goldberg-Gott 指标
 
 Goldberg 与 Gott 提出的综合指标：
+
 $$
 
 I_{GG} = \frac{1}{\pi} \left[ \alpha(\phi, \theta) \sqrt{d_{flex}^2 + d_{skew}^2 + d_{areal}^2} + d_{boundary}^2 + d_{cuts}^2 \right]
 
 $$
+
 其中：
 - $\alpha(\phi, \theta)$ 为局部角度失真
 - $d_{flex}$ 为柔性失真（flexion，弯曲失真）
@@ -1035,6 +1018,7 @@ $$
 
 在缩放级别 $z$ （通常 $0 \leq z \leq 22$ ），投影空间划分为 $2^z \times 2^z$ 个 $256 \times 256$ 像素的瓦片。
 每个瓦片的投影坐标宽度：
+
 $$
 
 \text{TileSize} = \frac{2 \cdot 20037508.342789244}{2^z} \text{ 米}
@@ -1044,42 +1028,39 @@ $$
 ### C.12.2 投影坐标到瓦片坐标的转换
 
 给定投影坐标 $(x, y)$ 和缩放级别 $z$ ：
-$$
 
+$$
 tile\_x = \left\lfloor \frac{x + \pi R}{2\pi R} \cdot 2^z \right\rfloor
-
-$$
 $$
 
+$$
 tile\_y = \left\lfloor \frac{\pi R - y}{2\pi R} \cdot 2^z \right\rfloor
-
 $$
+
 像素坐标：
-$$
 
+$$
 pixel\_x = \left\lfloor \left(\frac{x + \pi R}{2\pi R} \cdot 2^z - tile\_x\right) \times 256 \right\rfloor
-
-$$
 $$
 
+$$
 pixel\_y = \left\lfloor \left(\frac{\pi R - y}{2\pi R} \cdot 2^z - tile\_y\right) \times 256 \right\rfloor
-
 $$
 
 ### C.12.3 像素分辨率
 
 在缩放级别 $z$ ，像素分辨率为（单位：米/像素）：
-$$
 
+$$
 \text{PixelResolution} = \frac{40075016.685578488 \text{ 米}}{256 \times 2^z}
-
 $$
+
 例如，在 $z = 15$ 时：
-$$
 
+$$
 \text{PixelResolution} \approx 4.77 \text{ 米/像素}
-
 $$
+
 ---
 
 ## C.13 高级主题：现代数学技术的应用
@@ -1087,18 +1068,20 @@ $$
 ### C.13.1 变分法在投影优化中的应用
 
 寻找最优投影可表述为变分问题：
-$$
 
+$$
 \min_{f,g} \int_\Omega D[f,g; \lambda, \phi] \, dA
-
 $$
+
 其中 $D$ 为失真度量函数， $\Omega$ 为投影区域。
 例如，最小化平均角度变形的等积投影：
+
 $$
 
 \min_{f,g} \iint_\Omega \omega(\lambda, \phi) \, dA
 
 $$
+
 约束条件： $ab = 1$ （等积）
 
 ### C.13.2 分数阶微积分与失真分析
@@ -1112,6 +1095,7 @@ $$
 D^\alpha f(x) = \frac{1}{\Gamma(n-\alpha)} \int_a^x \frac{f^{(n)}(t)}{(x-t)^{\alpha-n+1}} dt
 
 $$
+
 其中 $n-1 < \alpha < n$ ， $\Gamma$ 是伽马函数。
 应用：分析比例因子 $k(\phi)$ 在极点附近的分数阶导数，理解失真的奇异行为。
 
