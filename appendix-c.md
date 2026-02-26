@@ -704,6 +704,8 @@ X = M(\phi) + N t \cos^2\phi \frac{\Delta\lambda^2}{2} \left[ 1 + \frac{\Delta\l
 
 $$
 
+and
+
 $$
 
 Y = N \cos\phi \, \Delta\lambda \left[ 1 + \frac{\Delta\lambda^2}{6} \left(1 - t^2 + \eta^2 \right) + \frac{\Delta\lambda^4}{120} \left(5 - 18t^2 + t^4 + 14\eta^2 - 58t^2\eta^2 \right) + \cdots \right]
