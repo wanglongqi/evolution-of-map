@@ -193,7 +193,7 @@ $$
 
 性质：
 1. 奇函数： $\psi(-\phi) = -\psi(\phi)$
-2. 单调递增： $\psi'(\phi) = \sec(\phi) > 0$ （对于 $|\phi| < \pi/2$ ）
+2. 单调递增： $\psi'(\phi) = \sec(\phi) > 0$ （对于 $\abs(\phi) < \pi/2$ ）
 3. 无界性： $\lim_{\phi \to \pm \pi/2} \psi(\phi) = \pm \infty$
 
 ### C.1.10 尺度因子分析
