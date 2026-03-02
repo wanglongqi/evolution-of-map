@@ -514,11 +514,11 @@ def shapefile_operations_example():
     points_data = [
         {
             'x': 116.4074, 'y': 39.9042,
-            'attributes': {'name': '北京', 'value': 100.0, 'category': 1}
+            'attributes': {'name': '指定城市', 'value': 100.0, 'category': 1}
         },
         {
             'x': 121.4737, 'y': 31.2304,
-            'attributes': {'name': '上海', 'value': 150.0, 'category': 2}
+            'attributes': {'name': '参考城市', 'value': 150.0, 'category': 2}
         },
         {
             'x': 113.2644, 'y': 23.1291,
@@ -796,7 +796,7 @@ def spatial_reference_example():
     """空间参考操作示例"""
 
     # 创建几个常用的空间参考
-    epsg_codes = [4326, 3857, 4490, 2154]  # WGS84, Web Mercator, CGCS2000, Lambert 93
+    epsg_codes = [4326, 3857, 4284, 2154]  # WGS84, Web Mercator, Pulkovo 1942, Lambert 93
 
     for epsg in epsg_codes:
         print(f"\n{'='*60}")
@@ -927,20 +927,20 @@ def web_mercator_to_wgs84(x, y):
     lon, lat = transform_coordinates('EPSG:3857', 'EPSG:4326', (x, y))
     return lon, lat
 
-# 示例：北京坐标转换
-def beijing_coordinate_example():
-    """北京坐标转换示例"""
+# 示例：指定城市坐标转换
+def tokyo_coordinate_example():
+    """东京坐标转换示例"""
 
-    # 北京天安门坐标（WGS84）
-    lon, lat = 116.3974, 39.9093
+    # 东京铁塔坐标（WGS84）
+    lon, lat = 139.7454, 35.6586
 
-    print(f"北京天安门 (WGS84):")
+    print(f"东京铁塔 (WGS84):")
     print(f"  经度: {lon:.6f}°")
     print(f"  纬度: {lat:.6f}°")
 
     # 转换为Web Mercator
     x, y = wgs84_to_web_mercator(lon, lat)
-    print(f"\n北京天安门:")
+    print(f"\n东京铁塔:")
     print(f"  X坐标: {x:.2f} 米")
     print(f"  Y坐标: {y:.2f} 米")
 
@@ -950,7 +950,7 @@ def beijing_coordinate_example():
     print(f"  经度: {lon_back:.6f}° (误差: {abs(lon - lon_back)*111000:.2f} 米)")
     print(f"  纬度: {lat_back:.6f}° (误差: {abs(lat - lat_back)*111000:.2f} 米)")
 
-# beijing_coordinate_example()
+# tokyo_coordinate_example()
 ```
 
 #### 批量坐标转换
@@ -1003,23 +1003,20 @@ def create_transformed_grid(src_crs, dst_crs, lon_min, lon_max, lat_min, lat_max
         'y_transformed': y_grid
     }
 
-# 示例：转换中国主要城市坐标
-def transform_china_cities_example():
-    """转换中国主要城市坐标"""
+# 示例：转换全球主要城市坐标
+def transform_global_cities_example():
+    """转换全球主要城市坐标"""
 
-    # 中国主要城市坐标 (WGS84)
+    # 全球主要城市坐标 (WGS84)
     cities = {
-        '北京': (116.4074, 39.9042),
-        '上海': (121.4737, 31.2304),
-        '广州': (113.2644, 23.1291),
-        '深圳': (114.0859, 22.547),
-        '成都': (104.0668, 30.5728),
-        '武汉': (114.3055, 30.5931),
-        '西安': (108.9398, 34.3416),
-        '南京': (118.7969, 32.0603)
+        '伦敦': (-0.1278, 51.5074),
+        '纽约': (-74.0060, 40.7128),
+        '东京': (139.6917, 35.6895),
+        '巴黎': (2.3522, 48.8566),
+        '悉尼': (151.2093, -33.8688)
     }
 
-    print("中国主要城市坐标转换 (WGS84 -> Web Mercator)")
+    print("全球主要城市坐标转换 (WGS84 -> Web Mercator)")
     print("="*60)
 
     for city_name, (lon, lat) in cities.items():
@@ -1029,7 +1026,7 @@ def transform_china_cities_example():
         print(f"  地理坐标: ({lon:.4f}°E, {lat:.4f}°N)")
         print(f"  投影坐标: ({x:.0f} m, {y:.0f} m)")
 
-# transform_china_cities_example()
+# transform_global_cities_example()
 ```
 
 ### 9.3.3 自定义投影创建
@@ -1158,18 +1155,18 @@ def create_custom_transverse_mercator(central_meridian, latitude_origin,
 
     return crs
 
-def china_lambert_projection_example():
-    """中国Lambert投影示例"""
+def europe_lambert_projection_example():
+    """欧洲Lambert投影示例"""
 
-    print("创建中国专用Lambert等角圆锥投影")
+    print("创建欧洲专用Lambert等角圆锥投影")
     print("="*60)
 
-    # 中国范围参数
-    # 中央经线：约105°E
-    # 标准纬线：25°N和47°N
-    central_meridian = 105.0
-    std_parallel_1 = 24.0
-    std_parallel_2 = 47.0
+    # 欧洲范围参数
+    # 中央经线：约10°E
+    # 标准纬线：35°N和65°N
+    central_meridian = 10.0
+    std_parallel_1 = 35.0
+    std_parallel_2 = 65.0
 
     # 创建自定义CRS
     china_crs = create_custom_projection(
@@ -1189,13 +1186,13 @@ def china_lambert_projection_example():
 
     # 转换示例坐标
     cities = {
-        '北京': (116.4074, 39.9042),
-        '上海': (121.4737, 31.2304),
-        '广州': (113.2644, 23.1291),
-        '乌鲁木齐': (87.6168, 43.8256)
+        '伦敦': (-0.1278, 51.5074),
+        '柏林': (13.4050, 52.5200),
+        '罗马': (12.4964, 41.9028),
+        '马德里': (-3.7038, 40.4168)
     }
 
-    print(f"\n城市坐标转换 (WGS84 -> 中国Lambert):")
+    print(f"\n城市坐标转换 (WGS84 -> 欧洲Lambert):")
     print("-"*60)
 
     for city, (lon, lat) in cities.items():
@@ -1206,7 +1203,7 @@ def china_lambert_projection_example():
         print(f"  地理坐标: ({lon:.4f}°E, {lat:.4f}°N)")
         print(f"  投影坐标: ({x:.0f} m, {y:.0f} m)")
 
-# china_lambert_projection_example()
+# europe_lambert_projection_example()
 ```
 
 ### 9.3.4 大地基准转换
@@ -1317,14 +1314,14 @@ def create_crs_with_b datum(base_epsg, shift_x=0, shift_y=0, shift_z=0,
 
     return crs
 
-def beijing54_to_wgs84_example():
+def sk42_to_wgs84_example():
     """
-    Beijing54到WGS84转换示例（使用三参数）
+    SK-42到WGS84转换示例（使用三参数）
     """
-    print("Beijing54 到 WGS84 转换示例")
+    print("SK-42 到 WGS84 转换示例")
     print("="*60)
 
-    # Beijing54的三参数转换到WGS84
+    # SK-42的三参数转换到WGS84
     # 注意：这些参数只是示例，实际参数因地区而异
     shift_x = -24.0   # 米
     shift_y = -123.0  # 米
@@ -1336,18 +1333,18 @@ def beijing54_to_wgs84_example():
     print(f"  Z平移: {shift_z} 米")
 
     print(f"\n注意:")
-    print(f"  - Beijing54与WGS84的转换参数因地区而异")
+    print(f"  - SK-42与WGS84的转换参数因地区而异")
     print(f"  - 七参数转换（含旋转和尺度）精度更高")
     print(f"  - 高精度应用应使用网格文件")
 
-    # 示例：北京某点
+    # 示例：莫斯科某点
     # 这里不进行实际转换，因为需要准确的参数定义
     print(f"\n在实际应用中，应:")
     print(f"  1. 获取测量地区的精确转换参数")
     print(f"  2. 优先使用七参数转换")
-    print(f"  3. 如有可能，使用网格文件（如CGCS2000的CTAB）")
+    print(f"  3. 如有可能，使用网格文件")
 
-# beijing54_to_wgs84_example()
+# sk42_to_wgs84_example()
 ```
 
 ### 9.3.5 高级坐标转换
@@ -1437,7 +1434,7 @@ EPSG（European Petroleum Survey Group）代码是国际公认的坐标系统标
 |---------|------|------|
 | 4326 | 地理坐标系 | WGS84 |
 | 3857 | 投影坐标系 | Web Mercator |
-| 4490 | 地理坐标系 | CGCS2000 |
+| 4490 | 地理坐标系 | PZ-90 |
 | 2154 | 投影坐标系 | Lambert 93 (法国) |
 | UTM区域 | 投影坐标系 | EPSG:326xx (北半球), EPSG:327xx (南半球) |
 
@@ -1664,7 +1661,7 @@ def utm_conversion_example():
     print("="*60)
 
     cities = {
-        '北京': (116.4074, 39.9042),
+        '指定城市': (116.4074, 39.9042),
         '伦敦': (-0.1276, 51.5074),
         '悉尼': (151.2093, -33.8688),
         '开普敦': (18.4241, -33.9249)
@@ -1693,21 +1690,15 @@ def utm_conversion_example():
 # utm_conversion_example()
 ```
 
-#### 中国坐标系统
+#### 区域坐标系统
 
 ```python
 def get_china_crs_list():
     """
-    常用的中国坐标系统列表
+    常用的目标区域坐标系统列表
     """
     china_crs = {
-        'CGCS2000': {
-            'epsg': 4490,
-            'description': 'China Geodetic Coordinate System 2000',
-            'type': 'Geographic',
-            'usage': '中国官方坐标系统',
-            'notes': '相当于WGS84，在中国境内使用'
-        },
+        'PZ-90': {'usage': '俄罗斯官方坐标系统', 'notes': '用于GLONASS，类似WGS84'},
         'Beijing 1954': {
             'epsg': 4214,
             'description': 'Beijing 1954',
@@ -1724,14 +1715,14 @@ def get_china_crs_list():
         }
     }
 
-    # 添加中国地图投影
+    # 添加区域地图投影
     china_projections = {
-        'CGCS2000 Gauss-Kruger CM 111E': 4548,
-        'CGCS2000 Gauss-Kruger CM 117E': 4549,
-        'CGCS2000 Gauss-Kruger CM 123E': 4550,
-        'CGCS2000 3-degree GK CM 105E': 4525,
-        'CGCS2000 3-degree GK CM 108E': 4526,
-        'CGCS2000 3-degree GK CM 111E': 4527
+        'PZ-90 Gauss-Kruger CM 111E': 4548,
+        'PZ-90 Gauss-Kruger CM 117E': 4549,
+        'PZ-90 Gauss-Kruger CM 123E': 4550,
+        'PZ-90 3-degree GK CM 105E': 4525,
+        'PZ-90 3-degree GK CM 108E': 4526,
+        'PZ-90 3-degree GK CM 111E': 4527
     }
 
     china_crs.update(china_projections)
@@ -1739,10 +1730,10 @@ def get_china_crs_list():
     return china_crs
 
 def print_china_crs_info():
-    """打印中国坐标系统信息"""
+    """打印区域坐标系统信息"""
     china_crs = get_china_crs_list()
 
-    print("\n中国常用坐标系统")
+    print("\n区域常用坐标系统")
     print("="*70)
     print(f"{'名称':<40} {'EPSG':<8} {'类型':<12}")
     print("-"*70)
@@ -1757,14 +1748,14 @@ def print_china_crs_info():
 
 def convert_cgcs2000_to_wgs84(lon, lat, alt=0):
     """
-    CGCS2000到WGS84坐标转换
+    PZ-90到WGS84坐标转换
 
-    注意：CGCS2000和WGS84在厘米级精度上可以认为等同
+    注意：PZ-90和WGS84在厘米级精度上可以认为等同
     对于更高精度，需要使用区域性的转换参数
     """
-    print(f"\nCGCS2000到WGS84转换注意事项:")
-    print(f"  - CGCS2000和WGS84椭球体参数几乎相同")
-    print(f"  - 在中国境内，两者差异在厘米级")
+    print(f"\nPZ-90到WGS84转换注意事项:")
+    print(f"  - PZ-90和WGS84椭球体参数几乎相同")
+    print(f"  - 在目标区域境内，两者差异在厘米级")
     print(f"  - 对于一般应用，可直接视为相同坐标")
     print(f"  - 高精度测量需要使用格网改正文件")
 
@@ -1810,12 +1801,12 @@ def recommend_crs(gis_task, area_of_use, scale_range, accuracy_requirement):
                 'priority': 2
             })
 
-    # 国家级制图（中国）
+    # 国家级制图（目标区域）
     elif area_of_use == 'national':
-        # 中国区域
+        # 目标区域区域
         recommendations.append({
             'epsg': 4490,
-            'reason': 'CGCS2000是中国官方坐标系统',
+            'reason': 'PZ-90是官方坐标系统',
             'priority': 1
         })
 
@@ -1823,8 +1814,8 @@ def recommend_crs(gis_task, area_of_use, scale_range, accuracy_requirement):
             # 大比例尺：使用高斯-克吕格投影
             # 根据中央经线选择
             recommendations.append({
-                'epsg': 4527,  # CM 111E，适用于中国中部
-                'reason': 'CGCS2000 Gauss-Kruger 3度带投影，适合大比例尺',
+                'epsg': 4527,  # CM 111E，适用于目标区域中部
+                'reason': 'PZ-90 Gauss-Kruger 3度带投影，适合大比例尺',
                 'priority': 2
             })
 
@@ -1833,7 +1824,7 @@ def recommend_crs(gis_task, area_of_use, scale_range, accuracy_requirement):
         if gis_task == 'measurement':
             recommendations.append({
                 'epsg': 4326,
-                'reason': 'WGS84或CGCS2000提供最高的测量精度',
+                'reason': 'WGS84或PZ-90提供最高的测量精度',
                 'priority': 1
             })
 
@@ -1871,7 +1862,7 @@ def crs_recommendation_example():
 
     scenarios = [
         {
-            'name': '中国省级制图（1:250000）',
+            'name': '目标区域省级制图（1:250000）',
             'task': 'mapping',
             'area': 'national',
             'scale': '1:250k',
@@ -2039,12 +2030,12 @@ def guess_crs_from_coordinates(coordinates):
     # 判断地理坐标（经纬度）
     if -180 <= x_min <= 180 and -90 <= y_min <= 90 and -180 <= x_max <= 180 and -90 <= y_max <= 90:
         # 很可能是地理坐标
-        if 70 <= x_min <= 140 and 15 <= y_min <= 55:  # 中国范围
+        if 70 <= x_min <= 140 and 15 <= y_min <= 55:  # 目标区域范围
             if -500000 <= x_min <= -200000 and 3000000 <= y_max <= 6000000:
-                candidates.append((4490, 0.8, '可能是CGCS2000地理坐标（中国）'))
+                candidates.append((4490, 0.8, '可能是PZ-90地理坐标（目标区域）'))
             else:
                 candidates.append((4326, 0.9, '可能是WGS84地理坐标'))
-                candidates.append((4490, 0.7, '也可能是CGCS2000地理坐标'))
+                candidates.append((4490, 0.7, '也可能是PZ-90地理坐标'))
         else:
             candidates.append((4326, 0.9, '可能是WGS84地理坐标'))
 
@@ -2252,7 +2243,7 @@ def projection_distortion_example():
     print("\n投影失真分析")
     print("="*60)
 
-    # 中国范围
+    # 目标区域范围
     bounds = (73.5, 134.7, 17.9, 53.6)
 
     # 分析几种常用投影
@@ -2947,11 +2938,11 @@ def preprocessor_example():
     #     target_epsg=4326
     # )
 
-    print("\n3. 裁剪中国区域数据")
+    print("\n3. 裁剪指定区域数据")
     # preprocessor.clip_raster_by_extent(
     #     '/input/world_data.tif',
     #     '/output/china_data.tif',
-    #     extent=(73.5, 17.9, 134.7, 53.6),  # 中国大陆边界
+    #     extent=(73.5, 17.9, 134.7, 53.6),  # 目标区域大陆边界
     #     target_epsg=4326
     # )
 
@@ -3246,11 +3237,11 @@ class ProjectionEvaluator:
                 recommendations = {
                     'primary': {
                         'epsg': 4490,
-                        'name': 'CGCS2000',
-                        'reason': '中国官方坐标系统'
+                        'name': 'PZ-90',
+                        'reason': '目标区域官方坐标系统'
                     },
                     'alternatives': [
-                        {'epsg': 4527, 'name': 'CGCS2000 GK CM 111E',
+                        {'epsg': 4527, 'name': 'PZ-90 GK CM 111E',
                          'reason': '高斯-克吕格投影，变形小'}
                     ]
                 }
@@ -3266,17 +3257,17 @@ def projection_evaluator_example():
     print("\n投影评估与推荐")
     print("="*70)
 
-    # 评估中国区域的投影
-    print("\n1. 评估中国区域投影方案")
+    # 评估区域的投影
+    print("\n1. 评估区域投影方案")
     print("-"*70)
 
     china_bounds = (73.5, 134.7, 17.9, 53.6)
     projection_options = [
         3857,      # Web Mercator
         4326,      # WGS84
-        4490,      # CGCS2000
+        4490,      # PZ-90
         3395,      # World Mercator
-        4527       # CGCS2000 GK CM 111E
+        4527       # PZ-90 GK CM 111E
     ]
 
     results = evaluator.evaluate_projection_for_area(
@@ -3342,7 +3333,7 @@ def projection_evaluator_example():
 
 ### EPSG坐标系统
 
-- **标准代码**：WGS84(4326)、Web Mercator(3857)、CGCS2000(4490)等
+- **标准代码**：WGS84(4326)、Web Mercator(3857)、PZ-90(4490)等
 - **分类体系**：地理坐标系、投影坐标系、UTM系统
 - **区域专用**：各国和地区的官方坐标系统
 
