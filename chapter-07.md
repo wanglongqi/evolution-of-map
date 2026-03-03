@@ -40,13 +40,15 @@ function mercator_forward(latitude, longitude, reference_latitude):
     return (x, y)
 
 function mercator_inverse(x, y):
-    // 迭代求解逆变换
-    latitude_estimate = 0
-    for i in 1 to max_iterations:
-        latitude_estimate = 2 * arctan(exp(y / R)) - π/2
-        // 可选：使用牛顿-拉夫逊改进
+    // 使用解析公式计算纬度（对于球面墨卡托）
     longitude = x / R + reference_longitude
-    return (latitude, longitude)
+    latitude = 2 * arctan(exp(y / R)) - π/2
+    
+    // 对于椭球面墨卡托，使用牛顿-拉夫逊迭代改进
+    // lat_{n+1} = lat_n - f(lat_n)/f'(lat_n)
+    // 其中 f(lat) = 2*arctan(exp(y/R)) - π/2 - lat
+    
+    return (latitude * 180 / π, longitude * 180 / π)
 ```
 
 #### 经典算法计算机化
@@ -104,11 +106,12 @@ SUBROUTINE GAUSS_KRUEGER(B, L, L0, X, Y)
     T = TAN(BR)
     ETA2 = E2 * COS(BR)**2 / (1 - E2)
     
-    C 高斯-克吕格投影公式
-    X0 = 111134.8611 * (B * 180 / PI - 
-     &    16036.4803 * SIN(2*BR) + 
-     &    16.8281 * SIN(4*BR) - 
-     &    0.0220 * SIN(6*BR))
+C 高斯-克吕格投影公式（B为纬度，单位：度）
+C 注意：B * 180 / PI 已将弧度转换为度，用于系数计算
+      X0 = 111134.8611 * (B - 
+     & 16036.4803 * SIN(2*BR) + 
+     & 16.8281 * SIN(4*BR) - 
+     & 0.0220 * SIN(6*BR))
     
     C ...（详细计算继续）
     

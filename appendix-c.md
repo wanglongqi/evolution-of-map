@@ -22,7 +22,7 @@ y = g(\lambda, \phi)
 $$
 
 其中：
-- $\lambda \in [-\pi, \pi]$ 为经度（lonigtude）
+- $\lambda \in [-\pi, \pi]$ 为经度（longitude）
 - $\phi \in [-\pi/2, \pi/2]$ 为纬度（latitude）
 - $x, y$ 为平面坐标
 
@@ -216,6 +216,12 @@ $$
 
 $$
 p(\phi) = k^2(\phi) = \sec^2(\phi)
+$$
+
+在纬度 $\phi$ 处，球面微元面积 $dA_{sphere} = R^2 \cos(\phi) \, d\lambda \, d\phi$ ，投影后面积 $dA_{map} = R^2 \sec(\phi) \, d\lambda \cdot R \sec(\phi) \, d\phi = R^2 \sec^2(\phi) \cos(\phi) \, d\lambda \, d\phi$ ：
+
+$$
+\frac{dA_{map}}{dA_{sphere}} = \frac{R^2 \sec^2(\phi) \cos(\phi)}{R^2 \cos(\phi)} = \sec^2(\phi)
 $$
 
 在纬度 $\phi$ 处，球面微元面积 $dA_{sphere} = R^2 \cos(\phi) \, d\lambda \, d\phi$ ，投影后面积 $dA_{map} = R^2 \sec(\phi) \, d\lambda \, d\phi$ ：
@@ -551,7 +557,7 @@ $$
 **主方向**（特征向量方向）的方位角 $\alpha$ ：
 
 $$
-\tan 2\alpha = \frac{2F}{E \cos\phi - G \cos\phi}
+\tan 2\alpha = \frac{2F \cos\phi}{E - G \cos^2\phi}
 $$
 
 ### C.5.6 Tissot 失真度量的数学表达式
@@ -692,7 +698,7 @@ $$
 
 （卯酉圈曲率半径）
 
-投影坐标：
+投影坐标（X为北坐标，Y为东坐标）：
 
 $$
 X = M(\phi) + N t \cos^2\phi \frac{\Delta\lambda^2}{2} \left[ 1 + \frac{\Delta\lambda^2}{12} \left(5 - t^2 + 9\eta^2 + 4\eta^4\right) + \cdots \right]

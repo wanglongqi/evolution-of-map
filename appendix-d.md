@@ -527,7 +527,7 @@ PROJ支持多种高精度基准变换方法：
 适用：小区域基准变换（几十公里至几百公里）
 
 ```bash
-+wgs84=+towgs84=-146.4,507.6,681.5,-1.162,2.109,3.574,16.91
++towgs84=-146.4,507.6,681.5,-1.162,2.109,3.574,16.91
 ```
 
 #### 2. Grid-based Transformation
@@ -600,7 +600,7 @@ cs2cs +proj=latlong +datum=WGS84 +to +proj=merc +datum=WGS84
 **1. 使用管道（Pipeline）减少中间步骤**
 
 ```bash
-+proj=pipeline +step +proj unitconvert +xy_in=deg +xy_out=rad
++proj=pipeline +step +proj=unitconvert +xy_in=deg +xy_out=rad
 ```
 
 **2. 缓存网格文件**

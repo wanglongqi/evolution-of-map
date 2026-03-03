@@ -182,7 +182,7 @@ $$
 
 1. **比例因子（scale factor）的变化**：在经度和纬度方向上保持相似的比例
 2. **变形分析（distortion analysis）**：识别并控制不同区域的变形程度
-3. **角度保持条件**：满足 $\frac{\partial x}{\partial \lambda} \cdot \frac{\partial y}{\partial \phi}$ 等相关的数学条件
+3. **角度保持条件**：满足柯西-黎曼方程（Cauchy-Riemann conditions）：$\frac{\partial x}{\partial \lambda} = \frac{\partial y}{\partial \phi}$ 和 $\frac{\partial x}{\partial \phi} = -\frac{\partial y}{\partial \lambda}$
 
 托勒密认识到：
 

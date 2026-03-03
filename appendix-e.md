@@ -177,7 +177,7 @@ lon_cgcs, lat_cgcs = transformer.transform(lon, lat)
 
 print(f"WGS84: ({lon:.8f}, {lat:.8f})")
 print(f"CGCS2000: ({lon_cgcs:.8f}, {lat_cgcs:.8f})")
-print(f"差异: ({abs(lon-lon_cgcs)*111320:.3f}m, {abs(lat-lat_cgcs)*111320:.3f}m)")
+print(f"差异: ({abs(lon-lon_cgcs)*111320*math.cos(math.radians(lat)):.3f}m, {abs(lat-lat_cgcs)*110574:.3f}m)")
 ```
 
 #### E.2.3.2 CGCS2000到UTM投影
@@ -938,7 +938,7 @@ def lonlat_to_tile(lon, lat, zoom):
     """将经纬度转换为瓦片坐标"""
     n = 2.0 ** zoom
     xtile = int((lon + 180.0) / 360.0 * n)
-    ytile = int((1.0 - math.asinh(math.tan(math.radians(lat))) / math.pi) / 2.0 * n)
+    ytile = int((1.0 - math.log(math.tan(math.radians(lat)) + 1.0/math.cos(math.radians(lat))) / math.pi) / 2.0 * n)
     return xtile, ytile
 
 def tile_to_lonlat(xtile, ytile, zoom):
@@ -1307,7 +1307,7 @@ gdaladdo -r average input.tif 2 4 8 16
 **4. 多线程处理**
 
 ```bash
-gdalwarp --config GDAL_NUM_threads ALL_CPUS -t_srs EPSG:3857 input.tif output.tif
+gdalwarp --config GDAL_NUM_THREADS ALL_CPUS -t_srs EPSG:3857 input.tif output.tif
 ```
 
 ---

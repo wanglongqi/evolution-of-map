@@ -1277,7 +1277,7 @@ def nad27_to_nad83_example():
 #### 使用三参数或七参数转换
 
 ```python
-def create_crs_with_b datum(base_epsg, shift_x=0, shift_y=0, shift_z=0,
+def create_crs_with_datum(base_epsg, shift_x=0, shift_y=0, shift_z=0,
                             rx=0, ry=0, rz=0, scale=0):
     """
     创建使用大地基准转换参数的CRS
@@ -1302,7 +1302,7 @@ def create_crs_with_b datum(base_epsg, shift_x=0, shift_y=0, shift_z=0,
         "Custom CRS",
         DATUM[
             "Custom Datum",
-            SPHERoid["{base_crs.ellipsoid.name}", {base_crs.ellipsoid.semi_major_m}, {base_crs.ellipsoid.inverse_flattening}],
+            SPHEROID["{base_crs.ellipsoid.name}", {base_crs.ellipsoid.semi_major_m}, {base_crs.ellipsoid.inverse_flattening}],
             TOWGS84[{shift_x}, {shift_y}, {shift_z}, {rx}, {ry}, {rz}, {scale}]
         ],
         PRIMEM["Greenwich", 0],

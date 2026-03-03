@@ -46,7 +46,7 @@ $$
 S2 首先引入**前向辐射投影（Radial Cubemap Projection）**。它将地球内嵌于一个边长为2的立方体 $\mathcal{C}$ 内。对于球面上的任意向量 $\mathbf{v} = (x, y, z)$ ，其在立方体表面上的投影点为 $\mathbf{p}$ ，计算为：
 
 $$
-\mathbf{p} = \max(|x|, |y|, |z|)^{-1} \cdot \mathbf{v}
+\mathbf{p} = \frac{\mathbf{v}}{\max(|x|, |y|, |z|)}
 $$
 
 此时，立方体上的坐标 $(u, v)$ 与球心的球面角度的关系是非线性的。为了使每一个四边形格网在投影后具备相等（或近似相等）的面积，S2 采用了一种二次变换（Quadratic Transformation）或者非线性变换使得投影的雅可比矩阵（Jacobian Determinant） $det(J)$ 尽可能接近常数：
@@ -58,7 +58,7 @@ $$
 在 S2 中，默认使用的 $f(u)$ 是：
 
 $$
-f(u) = \frac{1}{2} \left[ \frac{\tan(u \cdot \frac{\pi}{4})}{\tan(\frac{\pi}{4})} + 1 \right]
+f(u) = \frac{1}{2} \left[ \tan\left(u \cdot \frac{\pi}{4}\right) + 1 \right]
 $$
 
 这种非线性拉伸极大地补偿了靠近立方体边缘的面积萎缩，使得全球格网的最大和最小面积比限制在近似 $2.08$ 以内（相较于 Geohash 的接近正无穷）。

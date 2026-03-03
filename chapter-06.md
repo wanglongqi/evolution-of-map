@@ -558,17 +558,7 @@ $$
 z = f(w) = R \ln\left[ \tan\left( \frac{\pi}{4} + \frac{w}{2} \right) \right]
 $$
 
-分展开：
-
-$$
-x = R \ln\left[ \tan\left( \frac{\pi}{4} + \frac{\phi}{2} \right) \right] \cos\lambda \quad \text{(错误)}
-$$
-
-$$
-y = R \ln\left[ \tan\left( \frac{\pi}{4} + \frac{\phi}{2} \right) \right] \sin\lambda \quad \text{(错误)}
-$$
-
-正确的展开：
+**墨卡托投影的等角性**：墨卡托投影的标准公式为：
 
 $$
 x = R \cdot \lambda
@@ -772,17 +762,17 @@ $$
 - 椭球参数不同（WGS84）
 - 基准比例因子 $k_0 = 0.9996$ 乘以所有尺度因子
 
-坐标 $(X_{UTM}, Y_{UTM})$ ：
+坐标 $(E, N)$ （东坐标和北坐标）：
 
 $$
-X_{UTM} = k_0 \left[ M(\phi) + N t \cos^2\phi \frac{\Delta\lambda^2}{2} + \cdots \right] + X_{false}
+E = k_0 \left[ N \cos\phi \Delta\lambda \left( 1 + \frac{\Delta\lambda^2}{6} (1 - t^2 + \eta^2) + \cdots \right) \right] + E_{false}
 $$
 
 $$
-Y_{UTM} = k_0 \left[ N \cos\phi \Delta\lambda \left( 1 + \frac{\Delta\lambda^2}{6} (1 - t^2 + \eta^2) + \cdots \right) \right] + Y_{false}
+N = k_0 \left[ M(\phi) + N t \cos^2\phi \frac{\Delta\lambda^2}{2} + \cdots \right] + N_{false}
 $$
 
-其中 $(X_{false}, Y_{false})$ 是虚拟原点偏移。
+其中 $(E_{false}, N_{false})$ 是虚拟原点偏移（UTM中 $E_{false} = 500000$ m，北半球 $N_{false} = 0$ m，南半球 $N_{false} = 10000000$ m）。
 
 **UTM的应用**：
 

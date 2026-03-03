@@ -293,7 +293,7 @@ x(\lambda) = R \lambda_{\text{rad}} = R \cdot \frac{\pi}{180} \lambda_{\text{deg
 $$
 
 $$
-y(\phi) = R \ln\left[\tan\left(\frac{\pi}{4} + \frac{\phi_{2}}{2}\right)\right] = R \ln\left[\tan\left(\frac{\pi}{4} + \frac{\pi}{360}\phi_{\text{deg}}\right)\right]
+y(\phi) = R \ln\left[\tan\left(\frac{\pi}{4} + \frac{\phi}{2}\right)\right] = R \ln\left[\tan\left(\frac{\pi}{4} + \frac{\pi}{360}\phi_{\text{deg}}\right)\right]
 $$
 
 **公式的推导：**

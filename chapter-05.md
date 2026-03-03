@@ -560,7 +560,7 @@ $$
 
 **等积投影（Equal-area Projection）**：
 
-- 在所有点： $a \cdot b = 1$ 或 $ab = k^2$ （对于全局缩放）
+- 在所有点： $a \cdot b = 1$ （对于单位比例因子）或 $ab = k^2$ （对于全局缩放因子 $k$）
 - Tissot椭圆一般不为圆（ $a \neq b$ ）
 - 最大角度变形： $\omega = 2 \arcsin(\frac{a - 1/a}{a + 1/a})$
 - 面积比例因子： $p = 1$ （或恒定值）
@@ -797,7 +797,7 @@ $$
 **等角投影的度量条件**：等角投影要求局部相似，即存在尺度因子 $h$ 使得：
 
 $$
-g_{map} = h^2 \begin{pmatrix} \cos^2\phi & 0 \\ 0 & 1 \end{pmatrix} \cdot \frac{R^2}{ }
+g_{map} = h^2 \begin{pmatrix} \cos^2\phi & 0 \\ 0 & 1 \end{pmatrix} R^2
 $$
 
 这就是为什么等角投影在每一点的度量张量只是球面度量张量的标量乘法，没有旋转或剪切。
